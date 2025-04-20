@@ -1,54 +1,59 @@
-# 🏠 House Price Prediction App
+# Iris Flower Classification Web App
 
-A Streamlit web application that predicts house prices based on various property features using a trained machine learning model.
+A Flask web application for classifying iris flowers based on their sepal and petal measurements.
 
 ## Features
-- Interactive input form for property features
-- Real-time price prediction
-- Clean, user-friendly interface
+- Predicts iris species (setosa, versicolor, virginica) from input measurements
+- Simple web interface for easy interaction
+- Pre-trained machine learning model included
 
 ## Installation
+
 1. Clone this repository
-2. Install required packages:
+2. Install dependencies:
 ```bash
-pip install streamlit joblib numpy pandas scikit-learn
+pip install -r requirements.txt
 ```
+
+3. Download the model and scaler files (if not included in repository)
 
 ## Usage
+
 Run the application:
 ```bash
-streamlit run app.py
+python app.py
 ```
 
-The app will open in your default browser at `http://localhost:8501`
+The web interface will be available at:
+```
+http://localhost:10000
+```
 
-## Input Features
-The model uses these 13 features for prediction:
-- CRIM: Crime rate
-- ZN: Residential land zoned
-- INDUS: Non-retail business acres
-- CHAS: Charles River dummy variable
-- NOX: Nitric oxides concentration
-- RM: Average rooms per dwelling
-- AGE: Age of property
-- DIS: Distance to employment centers
-- RAD: Index of accessibility
-- TAX: Property tax rate
-- PTRATIO: Pupil-teacher ratio
-- B: Proportion of Black population
-- LSTAT: Lower status population percentage
+## API Endpoint
 
-## Model Details
-- Trained model: `house_price_model.pkl`
-- Feature scaler: `scaler.pkl`
-- Training data: `housing.csv`
+- **URL**: `/`
+- **Method**: `POST`
+- **Parameters** (form-data):
+  - sepal_length (float)
+  - sepal_width (float)
+  - petal_length (float)
+  - petal_width (float)
 
-## Files
-- `app.py`: Main application file
-- `house_price_model.pkl`: Serialized trained model
-- `scaler.pkl`: Feature scaler
-- `housing.csv`: Training dataset
-- `Task1.ipynb`: Jupyter notebook with model development code
+## Example Input
+```
+sepal_length: 5.1
+sepal_width: 3.5
+petal_length: 1.4
+petal_width: 0.2
+```
+
+## Requirements
+- Python 3.x
+- Flask
+- scikit-learn
+- joblib
+- numpy
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
+#
